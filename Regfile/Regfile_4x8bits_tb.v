@@ -2,7 +2,7 @@
 
 module Regfile_4x8bits_tb;
 
-      reg clk, rst;
+                reg clk, rst;
 		reg [1:0] w_addr, r_addr;
 		reg w_en, r_en;
 		reg [7:0] w_data;
