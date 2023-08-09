@@ -20,7 +20,7 @@ always @(state, load, in2, cnt)
 begin
      case (state)
          init: nstate = load ? Add : init;
-         Add: nstate = (in2 == 4'd0) ? Sum	: Shift;
+	 Add: nstate = (in2 == 4'd0) ? Sum : Shift;
          Shift: nstate = (cnt == 3'd4) ? Sum : Add;
          Sum: nstate = load ? Add : init;
      endcase
@@ -58,7 +58,7 @@ begin
 	  else if (state == Shift)
 	  begin
 	       in1 <= (cnt == 3'd4) ? in1 : (in1 << 1);
-			 in2 <= (cnt == 3'd4) ? in2 : (in2 >> 1);
+	       in2 <= (cnt == 3'd4) ? in2 : (in2 >> 1);
 	  end
 end
 
@@ -85,7 +85,7 @@ begin
        cnt <= 3'd0;
 	  else
 	  begin
-	       if (state == init || state == Sum)
+	  if (state == init || state == Sum)
               cnt <= 3'd0;
           else if (state == Add)
               cnt <= cnt + 3'd1;
@@ -98,20 +98,20 @@ begin
     if (rst)
 	 begin
 	      out <= 8'd0;
-			done <= 1'b0;
+	      done <= 1'b0;
 	 end
 	 else
 	 begin
 	      if (nstate == Sum)
-			begin
-			     out <= reg_out[7:0];
-				  done <= 1'b1;
-		   end
-			else
-			begin
-				  done <= 1'b0;
-			end
-	 end
+	      begin
+	           out <= reg_out[7:0];
+		   done <= 1'b1;
+	      end
+	      else
+	      begin
+		   done <= 1'b0;
+	      end
+    end
 end
 
 endmodule 
