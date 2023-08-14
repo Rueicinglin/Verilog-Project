@@ -28,32 +28,32 @@ begin
      if (b == 0)
 	  begin
 	       err = 1'b1;
-			 D = 0;
-			 R = 0;
+	       D = 0;
+	       R = 0;
 	  end
 	  else
 	  begin
 	       if (temp_a == 0)
 	       begin
 	            D[i-1] = 1'b0;
-			      temp = temp;
+		    temp = temp;
 	       end
 	       else
 	       begin
-               temp = temp_a + temp_b;
+                    temp = temp_a + temp_b;
 	            if (temp[2*Width-1])
 	            begin
 	                 temp_a = temp_a;
-			           temp_b = {1'b1, temp_b[2*Width-1:1]};
-			           D[i-1] = 1'b0;
+			 temp_b = {1'b1, temp_b[2*Width-1:1]};
+			 D[i-1] = 1'b0;
 	            end
 	            else
 	            begin
-			           temp_a = temp;
+			 temp_a = temp;
 	                 temp_b = {1'b1, temp_b[2*Width-1:1]};
 	                 D[i-1] = 1'b1;
 	            end
-			 end
+		end
 	  end
 end
 
