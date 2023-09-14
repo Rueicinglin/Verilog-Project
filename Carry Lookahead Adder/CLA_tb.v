@@ -11,11 +11,11 @@ wire C_out;
 
 CLA #(.Width(8)) DUT (
                      .A(A),
-					      .B(B),
-					      .C_in(C_in),
-					      .S(S),
-					      .C_out(C_out)
-					      );
+		     .B(B),
+		     .C_in(C_in),
+		     .S(S),
+		     .C_out(C_out)
+		     );
 
 initial begin
 
