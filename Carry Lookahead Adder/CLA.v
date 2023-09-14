@@ -27,8 +27,8 @@ generate
 for (i=0; i<Width; i=i+1)begin : gen_pro_cal
 gen_pro m0 (.A(A[i]),
             .B(B[i]),
-				.G(G[i]),
-				.P(P[i]));
+	    .G(G[i]),
+	    .P(P[i]));
 
 end
 
