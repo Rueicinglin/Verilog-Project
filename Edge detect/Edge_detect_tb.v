@@ -14,9 +14,9 @@ wire down;
  Edge_detect DUT (
                   .clk(clk), 
                   .rst_n(rst_n),
-			         .a(a),
-			         .rise(rise),
-			         .down(down)
+		  .a(a),
+		  .rise(rise),
+		  .down(down)
                  );
  
  initial begin
