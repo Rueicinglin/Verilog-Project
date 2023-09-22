@@ -20,7 +20,7 @@ always @(state, a, a_temp)begin
            Check: nstate = (a > a_temp) ? Rse : ((a < a_temp) ? Dow : Check);
            Rse: nstate = a ? Check : Dow;
            Dow: nstate = a ? Rse : Check;
-	        default: nstate = Check;
+	   default: nstate = Check;
        endcase
 
 end
@@ -36,11 +36,11 @@ end
 
 always @(posedge clk, negedge rst_n)begin
       if (!rst_n)begin
-		     a_temp <= 1'b0;
-		end
-		else begin
-		     a_temp <= a;
-	   end
+	   a_temp <= 1'b0;
+      end
+      else begin
+	   a_temp <= a;
+      end
 end
 
 assign rise = (state == Rse);
